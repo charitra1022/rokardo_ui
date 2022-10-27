@@ -1,13 +1,18 @@
 #player-container {
-    border: 2px solid red;
-    /* background-color: aquamarine; */
-    padding: 20px;
+    border-top: 2px solid rgb(214, 214, 214);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: white;
 }
 
+
 #art-container {
-    border: 2px solid red;
     padding: 10px;
     max-width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #controls-container {
@@ -18,9 +23,14 @@
 }
 
 .player-button {
-    text-align: center;
+    margin: 0 15px 0;
 }
 
 .seek-bar input{
+    margin-bottom: 20px;
     width: 100%;
+}
+
+#player-button-container {
+    text-align: center;
 }

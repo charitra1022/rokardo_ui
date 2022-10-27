@@ -1,7 +1,7 @@
-import cover from "./images/song-image.png";
+import cover from "./images/song-image.jpg";
 import "./css/MiniPlayer.css";
 
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Image } from "react-bootstrap";
 import { BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { BsPlayFill } from "react-icons/bs";
 
@@ -12,12 +12,12 @@ const MiniPlayer = () => {
       <Row >
         
         <Col id="art-container">
-          <img src={cover} alt="" />
+          <Image src={cover} alt="cover art" fluid height={150} width={150} />
         </Col>
 
         <Col id="controls-container">
           <Row>
-            <span id="song-title">This is a song</span>
+            <h4 id="song-title">Shape of You - Ed Sheeran</h4>
           </Row>
 
           <Row id="seek-container">
@@ -34,23 +34,20 @@ const MiniPlayer = () => {
 
 
 
-          <Row id="player-button-container">
-            <Col className="player-button">
-              <Button>
+          <div id="player-button-container">
+              <Button className="player-button">
                 <BiSkipPrevious />
               </Button>
-            </Col>
 
-            <Col className="player-button">
-              <Button>
+              <Button className="player-button">
                 <BsPlayFill />
               </Button>
-            </Col>
 
-            <Col className="player-button">
-              <Button><BiSkipNext/></Button>
-            </Col>
-          </Row> {/* player-button-container */}
+              <Button className="player-button">
+                <BiSkipNext/>
+              </Button>
+          </div> {/* player-button-container */}
+
         </Col> {/* controls-container */}
       </Row>
     </Container>
