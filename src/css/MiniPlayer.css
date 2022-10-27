@@ -1,0 +1,26 @@
+#player-container {
+    border: 2px solid red;
+    /* background-color: aquamarine; */
+    padding: 20px;
+}
+
+#art-container {
+    border: 2px solid red;
+    padding: 10px;
+    max-width: fit-content;
+}
+
+#controls-container {
+    margin: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.player-button {
+    text-align: center;
+}
+
+.seek-bar input{
+    width: 100%;
+}
