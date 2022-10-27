@@ -9,7 +9,7 @@ import cahrliePuth from "./images/artists/cahrliePuth.jpg";
 
 const ArtistList = () => {
   return (
-    <Container fluid>
+    <Container fluid style={{padding: '100px', paddingTop: '20px', paddingBottom: '20px'}}>
       <h2>Artists</h2>
 
       <Row>
