@@ -1,10 +1,10 @@
 import { Container, Row, Col, Figure } from "react-bootstrap";
 
-import rockMusic from "./images/genres/rockMusic.jpg";
-import jazzMusic from "./images/genres/jazzMusic.jpg";
-import bluesMusic from "./images/genres/bluesMusic.jpg";
-import classicalMusic from "./images/genres/classicalMusic.jpg";
-import electronicMusic from "./images/genres/electronicMusic.jpg";
+import rockMusic from "../images/genres/rockMusic.jpg";
+import jazzMusic from "../images/genres/jazzMusic.jpg";
+import bluesMusic from "../images/genres/bluesMusic.jpg";
+import classicalMusic from "../images/genres/classicalMusic.jpg";
+import electronicMusic from "../images/genres/electronicMusic.jpg";
 
 
 
