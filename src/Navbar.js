@@ -1,6 +1,7 @@
-import { Container, Navbar, Form, Button, NavDropdown, Col } from "react-bootstrap";
-import { BiSearchAlt } from "react-icons/bi";
+import { Container, Navbar, NavDropdown, Col } from "react-bootstrap";
 import { MdAccountCircle } from "react-icons/md";
+
+import SongSearchForm from "./SongSearchForm";
 
 import './css/Navbar.css';
 
@@ -14,17 +15,7 @@ const NavBar = () => {
         </Navbar.Brand>
         
         <Col xs={8}>
-          <Form  className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              />
-            <Button variant="outline-success">
-              <BiSearchAlt />
-            </Button>
-          </Form>
+          <SongSearchForm />
         </Col>
 
         <Col xs={2}>
