@@ -1,60 +1,56 @@
 import React from "react";
+import { useState } from "react";
+
+import { useSearchParams } from "react-router-dom";
 
 import { BiSearchAlt } from "react-icons/bi";
 import { Form, Button } from "react-bootstrap";
 
-class SongSearchForm extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.state = { searchQuery: "" };
-  }
 
-  handleInputChanged(event) {
-    // Called when the text in input box is changed
+function SongSearchForm() {
+  // State for url parameters
+  let [searchParams, setSearchParams] = useSearchParams();
 
-    this.setState({
-      searchQuery: event.target.value,
-    });
-  }
+  // state for input search terms
+  let [searchQuery, setSearchQuery] = useState("");
 
-  handleButtonClicked(event) {
-    // Called on search button click
 
-    var searchQuery = this.state.searchQuery;
-    alert(searchQuery);
-  }
+  // Called when the text in input box is changed
+  const handleInputChanged = (event) => setSearchQuery(event.target.value);
 
-  handleSubmit(event) {
-    // Called when form is submitted
+  
+  // Called when form is submitted
+  const handleSubmit = (event) => {
 
-    // Search Button tag
-    var submitBtn = event.target.getElementsByTagName('button')[0];
-    // Click the button
-    submitBtn.click();
     // Prevent page reload
     event.preventDefault();
+
+    let params = {q: event.target.getElementsByTagName('input')[0].value}
+    setSearchParams(params);
+
+    console.log(searchParams);
   }
 
-  render() {
-    // Returns a form element that contains a text box and a search button
 
-    return (
-      <Form className="d-flex" onSubmit={this.handleSubmit.bind(this)}>
-        <Form.Control
-          autoFocus
-          type="search"
-          placeholder="Search"
-          className="me-2"
-          aria-label="Search"
-          onChange={this.handleInputChanged.bind(this)}
-        />
-        <Button variant="primary" onClick={this.handleButtonClicked.bind(this)}>
-          <BiSearchAlt />
-        </Button>
-      </Form>
-    );
-  }
+  
+  // Returns a form element that contains a text box and a search button
+  return (
+    <Form className="d-flex" onSubmit={handleSubmit} method='get'>
+      <Form.Control
+        autoFocus
+        type="search"
+        placeholder="Search"
+        className="me-2"
+        aria-label="Search"
+        onChange={handleInputChanged}
+      />
+      <Button variant="primary" type="submit">
+        <BiSearchAlt />
+      </Button>
+    </Form>
+  );
+  
 }
 
 export default SongSearchForm;
