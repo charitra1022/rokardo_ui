@@ -25,11 +25,22 @@ class SongSearchForm extends React.Component {
     alert(searchQuery);
   }
 
+  handleSubmit(event) {
+    // Called when form is submitted
+
+    // Search Button tag
+    var submitBtn = event.target.getElementsByTagName('button')[0];
+    // Click the button
+    submitBtn.click();
+    // Prevent page reload
+    event.preventDefault();
+  }
+
   render() {
     // Returns a form element that contains a text box and a search button
 
     return (
-      <Form className="d-flex">
+      <Form className="d-flex" onSubmit={this.handleSubmit.bind(this)}>
         <Form.Control
           autoFocus
           type="search"
