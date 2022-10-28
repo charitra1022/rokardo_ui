@@ -1,14 +1,13 @@
 import { Container, Image, Col, Row } from "react-bootstrap";
 
-function SongAdapter() {
-  const url = 'https://www.youtube.com/watch?v=JGwWNGJdvx8'
+function SongAdapter(props) {
     return (
-        <Container className="border p-2" onClick={()=>window.open(url, '_blank')}>
+        <Container className="border p-2" onClick={()=>window.open(props.url, '_blank')}>
           <Row>
             
             <Col xs={2}>
               <Image 
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1xPyQYqGkRNnLbjEdLCq9S4FK86mdUg6lIg&usqp=CAU"
+                src={props.image}
                 fluid
                 width={100}
                 height={100}
@@ -16,15 +15,15 @@ function SongAdapter() {
             </Col>
 
             <Col>
-              <Row className="h5">Shape of You</Row>
+              <Row className="h5">{props.name}</Row>
               <Row>
                 <Col>
                   <small>Artist: </small>
-                  <span>Ed Sheeran</span> 
+                  <span>{props.artist}</span> 
                 </Col>
                 <Col>
                   <small>Plays: </small>
-                  <span>726048</span> 
+                  <span>{props.listeners}</span> 
                 </Col>
               </Row>
             </Col>
