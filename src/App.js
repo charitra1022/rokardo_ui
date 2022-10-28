@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Container } from "react-bootstrap";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Home from './Home';
 import SongList from './ListView/SongList';
@@ -12,24 +12,21 @@ import NavBar from './Navbar';
 function App() {
   return (
     // <Container className="App" fluid>
+
     <Router>
       <NavBar />
 
-      <Switch>
-        <Route path='/song/search'>
-          <SongList />
-        </Route>
-
+      <Routes>
         <Route path='/'>
-          <Home />
+          <Route index element={<Home />} />
+          <Route path='/song/search' element={<SongList />}></Route>
         </Route>
-      </Switch>
+      </Routes>
 
       <MiniPlayer id='miniplayer' />
-  
-
-
     </Router>
+
+
     // </Container>
   );
 }
