@@ -1,8 +1,9 @@
 import { Container, Image, Col, Row } from "react-bootstrap";
 
 function SongAdapter() {
+  const url = 'https://www.youtube.com/watch?v=JGwWNGJdvx8'
     return (
-        <Container className="mt-5 border p-2">
+        <Container className="mt-5 border p-2" onClick={()=>window.open(url, '_blank')}>
           <Row>
             
             <Col xs={2}>
