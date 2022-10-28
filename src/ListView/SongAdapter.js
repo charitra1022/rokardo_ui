@@ -17,11 +17,12 @@ function SongAdapter(props) {
             <Col>
               <Row className="h5">{props.name}</Row>
               <Row>
-                <Col>
+                <Col className='text-left'>
                   <small>Artist: </small>
                   <span>{props.artist}</span> 
                 </Col>
-                <Col>
+
+                <Col className="text-left">
                   <small>Plays: </small>
                   <span>{props.listeners}</span> 
                 </Col>
