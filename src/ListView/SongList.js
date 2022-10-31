@@ -22,7 +22,7 @@ function SongList() {
 
     // Generate API URL for data fetching
     // const url = `http://127.0.0.1:8000/song/search/`
-    const url = `http://127.0.0.1:8000/song/search/?${new URLSearchParams({
+    const url = `http://127.0.0.1:8000/api/song/search/?${new URLSearchParams({
       q: searchKey,
     }).toString()}`;
 
