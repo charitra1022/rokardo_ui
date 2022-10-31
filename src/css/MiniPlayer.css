@@ -10,15 +10,20 @@
 
 
 #art-container {
-    padding: 10px;
     max-width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.miniplayer-cover-art {
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+}
+
 #controls-container {
-    margin: 30px;
+    margin: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

@@ -6,13 +6,13 @@ import { BiSkipPrevious, BiSkipNext } from "react-icons/bi";
 import { BsPlayFill } from "react-icons/bs";
 
 
-const MiniPlayer = () => {
+const MiniPlayer = (props) => {
   return (
     <Container id="player-container" fluid>
       <Row >
         
         <Col id="art-container">
-          <Image src={cover} alt="cover art" fluid height={150} width={150} />
+          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eEAQUCTbIG8G3vis0FMO1gLavf8gsMUQwQ&usqp=CAU" alt="cover art" fluid className="miniplayer-cover-art img-thumbnail" />
         </Col>
 
         <Col id="controls-container">

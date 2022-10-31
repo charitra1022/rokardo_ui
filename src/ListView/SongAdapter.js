@@ -1,4 +1,5 @@
 import { Container, Image, Col, Row } from "react-bootstrap";
+import '../css/SongListAdapter.css';
 
 function SongAdapter(props) {
     return (
@@ -11,6 +12,7 @@ function SongAdapter(props) {
                 fluid
                 width={100}
                 height={100}
+                className='list-cover-art img-thumbnail'
                 />
             </Col>
 
