@@ -47,8 +47,10 @@ const ArtistList = () => {
           artists.map((artist) => (
             <ArtistAdapter
               name={artist.name}
-              url="/song/search"
+              mbid={artist.mbid}
               image={artist.image}
+              plays={artist.plays}
+              bio={artist.bio}
             />
           ))}
       </Row>
