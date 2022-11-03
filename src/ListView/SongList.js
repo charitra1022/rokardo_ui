@@ -8,9 +8,9 @@ import { useSearchParams } from "react-router-dom";
 import LoaderSpinner from "./Loader";
 
 function SongList() {
-  var [jsonData, setJsonData] = useState([]); // state for song data
-  var [isLoading, setLoading] = useState(null); // state for is data loaded
-  var [error, setError] = useState(null); // state for error encountered
+  let [songs, setSongsData] = useState([]); // state for song data
+  let [isLoading, setLoading] = useState(null); // state for is data loaded
+  let [error, setError] = useState(null); // state for error encountered
 
   // get Search params
   var [searchParams] = useSearchParams();
@@ -30,16 +30,16 @@ function SongList() {
     fetch(url)
       .then((res) => res.json()) // return json from response object
       .then((json) => {
-        setJsonData(json); // set json data
+        //convert json response to javascript objects
+        const data = JSON.parse(JSON.stringify(json));
+        setSongsData(data); // set song data
         setLoading(false); // loading done
       })
       .catch((err) => {
         setError(err); // error encountered
+        setLoading(false); // loading done
       });
   }, [searchParams]);
-
-  jsonData = JSON.stringify(jsonData); // Convert json to json string
-  var songs = JSON.parse(jsonData); // Convert json string to JavaScript object
 
   // Render the song data using adapter
   return (
