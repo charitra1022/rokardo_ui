@@ -7,6 +7,7 @@ import Home from './Home';
 import SongList from './ListView/SongList';
 import MiniPlayer from './MiniPlayer';
 import NavBar from './Navbar';
+import ArtistPage from './ArtistPage';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/'>
           <Route index element={<Home />} />
           <Route path='/song/search' element={<SongList />}></Route>
+          <Route path='/artist/:mbid' element={<ArtistPage />}></Route>
         </Route>
       </Routes>
 
