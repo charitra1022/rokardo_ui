@@ -1,65 +1,56 @@
-import { Container, Row, Col, Figure } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import { useState, useEffect } from "react";
 
-import arijistSingh from "../images/artists/arijistSingh.jpg";
-import selenaGomez from "../images/artists/selenaGomez.jpg";
-import justinBieber from "../images/artists/justinBieber.jpg";
-import katyPerry from "../images/artists/katyPerry.jpg";
-import cahrliePuth from "../images/artists/cahrliePuth.jpg";
-
+import ArtistAdapter from "./ArtistAdapter";
+import LoaderSpinner from "./Loader";
 
 const ArtistList = () => {
+  let [artists, setArtists] = useState([]); // state for artist data
+  let [isLoading, setLoading] = useState(false); // state for is data loaded
+  let [error, setError] = useState(null); // state for error encountered
+
+  // fetch data when webpage is loaded
+  useEffect(() => {
+    setLoading(true); // loading started
+
+    const url = "http://127.0.0.1:8000/api/artist/top/";
+    // Fetch API using defined URL
+    fetch(url)
+      .then((res) => res.json()) // return json from response object
+      .then((json) => {
+        //convert json response to javascript objects
+        const data = JSON.parse(JSON.stringify(json));
+        setArtists(data); // set artist data
+        setLoading(false); // loading done
+      })
+      .catch((err) => {
+        setError(err); // error encountered
+        console.log(err);
+        setLoading(false); // loading done
+      });
+  }, []);
+
   return (
-    <Container fluid style={{padding: '100px', paddingTop: '20px', paddingBottom: '20px'}}>
+    <Container
+      fluid
+      style={{ padding: "100px", paddingTop: "20px", paddingBottom: "20px" }}
+    >
       <h2>Artists</h2>
 
+      {console.log(artists)}
+
       <Row>
-        <Col>
-          <Figure>
-            <Figure.Image width={200} height={200} src={arijistSingh} roundedCircle />
-            <Figure.Caption>
-              <h5 className="text-center">Arijit Singh</h5>
-            </Figure.Caption>
-          </Figure>
-        </Col>
-
-        <Col>
-          <Figure>
-            <Figure.Image width={200} height={200} src={selenaGomez} roundedCircle />
-            <Figure.Caption>
-              <h5 className="text-center">Selena Gomez</h5>
-            </Figure.Caption>
-          </Figure>
-        </Col>
-
-        <Col>
-          <Figure>
-            <Figure.Image width={200} height={200} src={justinBieber} roundedCircle />
-            <Figure.Caption>
-              <h5 className="text-center">Justin Bieber</h5>
-            </Figure.Caption>
-          </Figure>
-        </Col>
-
-        <Col>
-          <Figure>
-            <Figure.Image width={200} height={200} src={katyPerry} roundedCircle />
-            <Figure.Caption>
-              <h5 className="text-center">Katy Perry</h5>
-            </Figure.Caption>
-          </Figure>
-        </Col>
-
-        <Col>
-          <Figure>
-            <Figure.Image width={200} height={200} src={cahrliePuth} roundedCircle />
-            <Figure.Caption>
-              <h5 className="text-center">Charlie Puth</h5>
-            </Figure.Caption>
-          </Figure>
-        </Col>
-
-
-
+        {/* Show/hide loading animation */}
+        {isLoading && <LoaderSpinner />}
+        {/* Show data only if laoding is finished */}
+        {!isLoading &&
+          artists.map((artist) => (
+            <ArtistAdapter
+              name={artist.name}
+              url="/song/search"
+              image={artist.image}
+            />
+          ))}
       </Row>
     </Container>
   );
